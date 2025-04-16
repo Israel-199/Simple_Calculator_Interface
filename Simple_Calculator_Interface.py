@@ -3,31 +3,25 @@ from tkinter import *
 root = Tk()
 root.title('Simple Calculator')
 
-# Set window size
 window_width = 360
 window_height = 400
 
-# Get the screen dimension
 screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 
-# Find the center point
 center_x = int((screen_width - window_width) / 2)
 center_y = int((screen_height - window_height) / 2)
 
-# Set the position of the window to the center of the screen
+
 root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
 root.resizable(False, False)
 
-# Entry
 e = Entry(root, width=25, borderwidth=5, font=('Arial', 18))
 e.grid(row=0, column=0, columnspan=4, padx=10, pady=10)
 
-# Button dimensions
 button_width = 10
 button_height = 3
 
-# Functions
 def button_add(number):
     current = e.get()
     e.delete(0, END)
@@ -75,7 +69,6 @@ def button_equal():
         else:
             e.insert(0, "Error")
 
-# Buttons config
 buttons = [
     ('7', 1, 0), ('8', 1, 1), ('9', 1, 2), ('/', 1, 3),
     ('4', 2, 0), ('5', 2, 1), ('6', 2, 2), ('x', 2, 3),
@@ -102,7 +95,6 @@ for (text, row, col) in buttons:
     Button(root, text=text, width=button_width, height=button_height, command=command)\
         .grid(row=row, column=col, padx=2, pady=2)
 
-# Footer
 label = Label(root, text='This App Developed by Israel Assefa')
 label.grid(row=5, column=0, columnspan=4, pady=10)
 
